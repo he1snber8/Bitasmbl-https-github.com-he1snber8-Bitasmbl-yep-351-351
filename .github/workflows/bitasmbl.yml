@@ -1,0 +1,20 @@
+
+name: Bitasmbl Validation
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+     
+      - name: Install Bitasmbl CLI
+        run: npm install bitasmbl-cli
+
+      - name: Run Bitasmbl
+        run: bitasmbl-cli init
